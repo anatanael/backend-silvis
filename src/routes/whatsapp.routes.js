@@ -1,0 +1,15 @@
+const express = require("express");
+
+const router = express.Router();
+
+const whatsappController = require("../controllers/whatsapp.controller");
+
+router.get("/status", whatsappController.getStatus);
+
+router.get("/qrcode", whatsappController.getQRCode);
+
+router.get("/chats", whatsappController.getChats);
+
+router.get("/chat/:id", whatsappController.getChatById);
+
+module.exports = router;
