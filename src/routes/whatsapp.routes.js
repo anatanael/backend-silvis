@@ -8,8 +8,8 @@ router.get("/status", whatsappController.getStatus);
 
 router.get("/qrcode", whatsappController.getQRCode);
 
-router.get("/chats", whatsappController.getChats);
+router.get("/chats/:instance", whatsappController.getChats);
 
-router.get("/chat/:id", whatsappController.getChatById);
+router.get("/chat/:instance/:id", whatsappController.getChatById);
 
 module.exports = router;

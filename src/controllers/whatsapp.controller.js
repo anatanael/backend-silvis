@@ -28,7 +28,8 @@ exports.getQRCode = async (req, res, next) => {
 
 exports.getChats = async (req, res, next) => {
   try {
-    const chats = await evolutionService.getChats();
+    const { instance } = req.params;
+    const chats = await evolutionService.getChats(instance);
 
     return res.json({
       success: true,
@@ -42,9 +43,9 @@ exports.getChats = async (req, res, next) => {
 
 exports.getChatById = async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const { instance, id } = req.params;
 
-    const chat = await evolutionService.getChatById(id);
+    const chat = await evolutionService.getChatById(instance, id);
 
     if (!chat) {
       return res.status(404).json({

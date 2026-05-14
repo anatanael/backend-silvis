@@ -32,10 +32,12 @@ exports.getQRCode = async () => {
   }
 };
 
-exports.getChats = async () => {
+exports.getChats = async (instance) => {
+  console.log(instance);
   try {
     const response = await api.post(
-      `/chat/findChats/${EVOLUTION.INSTANCE}`,
+      //`/chat/findChats/${EVOLUTION.INSTANCE}`,
+      `/chat/findChats/${instance}`,
       {},
     );
 
@@ -72,10 +74,11 @@ exports.getChats = async () => {
   }
 };
 
-exports.getChatById = async (chatId) => {
+exports.getChatById = async (instance, chatId) => {
   try {
     const response = await api.post(
-      `/chat/findMessages/${EVOLUTION.INSTANCE}`,
+      //`/chat/findMessages/${EVOLUTION.INSTANCE}`,
+      `/chat/findMessages/${instance}`,
       {
         where: {
           key: {
